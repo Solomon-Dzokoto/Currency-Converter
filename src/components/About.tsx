@@ -10,11 +10,11 @@ const About = () => {
         { id: 3, icon: <AiOutlineThunderbolt />, title: "Instant Conversion", desc: "Our conversion process is instant. No long waits but we provide you with the most accurate information" },
         { id: 4, icon: <MdOutlineMessage />, title: "Updates every 5 minutes", desc: "Our rates are updated every 5 minutes to give you the best conversions." },
     ]
-
+    
 
     return (
-        <section className="px-[clamp(1rem,4vw,4rem)] py-[2rem] bg-sky-50">
-            <ul className="grid md:grid-cols-2 gap-4">
+        <section className="px-[clamp(1rem,4vw,4rem)] py-[2.5rem] bg-sky-50">
+            <ul className="grid md:grid-cols-2 gap-4 gap-y-8">
                 {
                     info.map((item) => (
                         <li className="flex gap-4" key={item.id}>

@@ -6,14 +6,14 @@ const NavBar = () => {
         <nav className='relative flex justify-between z-10'>
             <span className='flex items-center gap-4'>
                 <img
-                className='size-12'
-                 src={Logo} 
-                 alt="Logo" />
-                 <h1 className='text-white font-semibold text-[clamp(.7rem,2vw,1rem)]'>CURRENCY CONVERTER</h1>
+                    className='size-12 animate-bounce '
+                    src={Logo}
+                    alt="Logo" />
+                <h1 className='text-white font-semibold text-[clamp(.7rem,2vw,1rem)]'>CURRENCY CONVERTER</h1>
             </span>
             <div className='flex items-center gap-4'>
-            <a className='text-[2rem] text-white' href='#'><FaGithub/></a>
-            <p className='text-white text-[clamp(.7rem,2vw,1rem)]'>View Repo</p>
+                <a className='text-[2rem] text-white' href='#'><FaGithub /></a>
+                <p className='text-white text-[clamp(.7rem,2vw,1rem)]'>View Repo</p>
             </div>
         </nav>
     )

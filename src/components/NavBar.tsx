@@ -12,7 +12,7 @@ const NavBar = () => {
                 <h1 className='text-white font-semibold text-[clamp(.7rem,2vw,1rem)]'>CURRENCY CONVERTER</h1>
             </span>
             <div className='flex items-center gap-4'>
-                <a className='text-[2rem] text-white' href='#'><FaGithub /></a>
+                <a className='text-[2rem] text-white' href='https://github.com/Solomon-Dzokoto/Currency-Converter'><FaGithub /></a>
                 <p className='text-white text-[clamp(.7rem,2vw,1rem)]'>View Repo</p>
             </div>
         </nav>

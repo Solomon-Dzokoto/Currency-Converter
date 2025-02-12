@@ -973,6 +973,24 @@ video {
   background-color: rgb(46 16 101 / var(--tw-bg-opacity, 1));
 }
 
+.after\:bg-red-950::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(69 10 10 / var(--tw-bg-opacity, 1));
+}
+
+.after\:bg-red-900::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity, 1));
+}
+
+.after\:bg-blue-950::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 37 84 / var(--tw-bg-opacity, 1));
+}
+
 .after\:opacity-95::after {
   content: var(--tw-content);
   opacity: 0.95;

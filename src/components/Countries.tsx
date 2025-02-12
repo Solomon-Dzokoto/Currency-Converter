@@ -2,14 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/UseContextApi";
 import Card from "./Card";
 import NIG from '../assets/ghana.png'
+import GBPFlag from '../assets/united-kingdom.png';
+import CADFlag from '../assets/canada.png';
+import NGNFlag from '../assets/nigeria.png';
+import USDFlag from '../assets/united-states.png';
 
 
-enum CountryFlags {
-    GBP = 'src/assets/united-kingdom.png',
-    CAD = 'src/assets/canada.png',
-    NGN = 'src/assets/nigeria.png',
-    USD = 'src/assets/united-states.png'
-}
+const CountryFlags = {
+    GBP: GBPFlag,
+    CAD:CADFlag,
+    NGN: NGNFlag,
+    USD: USDFlag,
+};
 
 const Countries = () => {
     const { rates } = useContext(DataContext)

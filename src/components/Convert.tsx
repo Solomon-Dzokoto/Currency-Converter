@@ -10,13 +10,13 @@ interface Props {
 
 const Convert = () => {
     const [details, setDetails] = useState<Props>({ from: "GHS", to: "USD" })
-    const [convert, setConvert] = useState<number>(0)
+    const [convert, setConvert] = useState<string | number | null>(1)
     const [loading, setLoading] = useState<boolean>(false)
     const { rates } = useContext(DataContext)
     const { from, to } = details
 
     const conversionRate = rates[to] / rates[from]
-    const conversionResult = conversionRate * convert
+    const conversionResult = conversionRate * Number(convert)
 
 
 
@@ -40,10 +40,15 @@ const Convert = () => {
 
     }
 
+    const onConvert = (e:React.ChangeEvent<HTMLInputElement>) => {
+       const  value = e.target.value
+       if(Number(value) < 0) return
+       setConvert(value===""?"":Number(value))
+
+    }
+
     return (
         <section className="px-[clamp(1rem,4vw,4rem)] py-[3rem] relative">
-
-
             <form onSubmit={handleSubmit} className="p-8 bg-white -top-[7rem] md:-top-[8rem] max-h-fit  relative m-auto w-[calc(100vw-8vw)]  flex shadow-xl rounded-2xl flex-col gap-8">
 
                 <>
@@ -56,10 +61,8 @@ const Convert = () => {
                                         type="number"
                                         className="border-b-2 py-2 block outline-none w-full"
                                         id="number"
-                                        value={convert}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                            setConvert(Number(e.target.value))
-                                        }}
+                                        value={convert as number}
+                                        onChange={onConvert}
                                         name="number"
                                     />
                                     <select
@@ -95,15 +98,18 @@ const Convert = () => {
                                             ))
                                         }
                                     </select>
-                                    <h1 className="font-semibold text-[2rem]">{convert >= 0 ? conversionResult.toFixed(2) : 0.00}</h1>
+                                    <h1 className="font-semibold text-[2rem]">{Number(convert) >= 0 ? conversionResult.toFixed(2) : 0.00}</h1>
                                 </div>
                             </div>
                         ) : (
-                            <img
-                                src={Loader}
-                                alt="Loading"
-                                className="md:h-[50vh] md:w-full"
-                            />
+                            <span className="flex justify-center items-center">
+                                <img
+                                    src={Loader}
+                                    alt="Loading"
+                                    className="max-w-[10rem] w-full"
+                                />
+                            </span>
+
                         )
                     }
 
@@ -111,10 +117,10 @@ const Convert = () => {
                         <div>
                             <p className="text-gray-600 block font-bold">Your Rate</p>
                             <h2 className="font-semibold text-green-600 text-[1.5rem]">
-                                
+
                                 {
-                                    !loading?
-                                conversionRate.toFixed(4): <>_</>
+                                    !loading ?
+                                        conversionRate.toFixed(4) : <>_</>
                                 }
 
                             </h2>
